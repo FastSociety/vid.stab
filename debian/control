@@ -1,0 +1,28 @@
+Source: vid.stab
+Priority: optional
+Section: devel
+Maintainer: Fastsociety Ops <ops@fastsociety.com>
+Build-Depends: debhelper (>= 8), cmake (>= 2.8.7), libc6-dev
+Standards-Version: 3.9.3
+Vcs-Git: https://github.com/georgmartius/vid.stab.git
+Vcs-Browser: https://github.com/georgmartius/vid.stab
+Homepage: http://public.hronopik.de/vid.stab/
+
+Package: libvidstab-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libvidstab (= ${binary:Version})
+Description: development files for libvidstab
+ This package contains the header files and library needed to compile
+ applications that use vid.stab.
+
+Package: libvidstab
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: vid.stab library
+ This package contains the vid.stab shared libraries.

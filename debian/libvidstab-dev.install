@@ -1,0 +1,5 @@
+usr/lib/pkgconfig
+# header files
+usr/include/vid.stab/*
+# libraries
+usr/lib/libvidstab.so

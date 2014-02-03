@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+
+unexport CFLAGS
+unexport CXXFLAGS
+unexport LDFLAGS
+
+CMAKE_FLAGS = \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_C_FLAGS_RELEASE="$(CFLAGS)" \
+	-DCMAKE_CXX_FLAGS_RELEASE="$(CXXFLAGS)" \
+	-DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
+	-DCMAKE_BUILD_TYPE=Release
+
+NPROC=$(shell nproc)
+export DEB_BUILD_OPTIONS=parallel=$(NPROC)
+	
+%:
+	dh $@  --buildsystem=cmake --builddirectory=./
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CMAKE_FLAGS)
+	
+override_dh_auto_build:
+	dh_auto_build --parallel
