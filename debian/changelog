@@ -1,5 +1,5 @@
-vid.stab (0:0.98a~cameo0) stable; urgency=low
+vid.stab (0:0.98a-77b6b3c7~cameo0) stable; urgency=low
 
-  * Import upstream release of version 0.98a
+  * Import upstream release of version 0.98a/master:77b6b3c73050a01a00dc7e956bb9d114dda32490
 
- -- Fastsociety Ops <ops@fastsociety.com>  Mon, 03 Feb 2014 00:00:00 +0000
+ -- Fastsociety Ops <ops@fastsociety.com>  Mon, 04 Feb 2014 00:00:00 +0000
