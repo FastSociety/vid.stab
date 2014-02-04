@@ -32,6 +32,13 @@
 
 
 /** converts for each frame the localmotions into a transform
+    @deprecated!
+ */
+int vsLocalmotions2TransformsSimple(VSTransformData* td,
+                                    const VSManyLocalMotions* motions,
+                                    VSTransformations* trans );
+
+/** converts for each frame the localmotions into a transform
  */
 int vsLocalmotions2Transforms(VSTransformData* td,
                               const VSManyLocalMotions* motions,
